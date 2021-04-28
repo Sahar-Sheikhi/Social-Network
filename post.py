@@ -1,5 +1,5 @@
 import datetime
-
+#da
 
 class Post:
     def __init__(self, text, date=0, time=0, comment=None, comment_num=0):
@@ -24,7 +24,7 @@ class Post:
         This Function create, modify or delete post
         """
         self.text = input('Write Post:\n')
-        return Post(self.text,datetime.time,datetime.date)
+        return Post(self.text, datetime.datetime.now(), datetime.datetime.today())
 
     def set_comment(self):
         """
