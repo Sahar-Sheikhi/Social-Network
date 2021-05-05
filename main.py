@@ -1,43 +1,42 @@
-from log_in_out import *
+from Social_Network.sign_in import sign_in
+from Social_Network.sign_up import sign_up
 
-
-# test case
+#test case
 user1 = User('woody', '123', 9126129808, 'sahar@gmail.com', 'I am devops.', None, 'sahar', 'sheikhi')
 # username = woody
 # password = 123
 
-post1=Post('first post')
-username_list.append(user1.username)
-password_list.append(user1.password)
-user_obj_dict[user1.username] = user1
-user_pass_dict[user1.username] = user1.password
 
-sign_up_in()
-if len(logged_in_user)!=0:
-    logged_in_user = logged_in_user[0]
+print('********************************\n***Welcome to Social Network Application***:\n********************************')
 while True:
-    menu_selection = input('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n'
-                           'Welcome:\n'
-                           '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n'
-                           '1)show your profile\n'
-                           '2)show posts\n'
-                           '3)show friends\n'
-                           '4)send a new post\n'
-                           '5)Show a friend profile\n'
-                           '6)show a friend posts\n'
-                           'Enter o to log out')
-    if menu_selection == 'o':
-        print('***You are logged out.')
-        sign_up_in()
-    if menu_selection == '1':
-        print(logged_in_user.show_profile())
-    if menu_selection == '2':
-        logged_in_user.posts
+    selection = input('1) Sign Up\n2) Sing in')
+    if selection == '1':
+        print(sign_up())
+    if selection == '2':
+        print(sign_in())
+        while True:
+            menu_selection = input('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n'
+                                   'Enter a Number:\n'
+                                   '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n'
+                                   '1)show your profile\n'
+                                   '2)show posts\n'
+                                   '3)show friends\n'
+                                   '4)send a new post\n'
+                                   '5)Show a friend profile\n'
+                                   '6)show a friend posts\n'
+                                   'Enter o to sign out')
+            if menu_selection == 'o':
+                print('***You are logged out.')
+                break
+            if menu_selection == '1':
+                print(.show_profile())
+            if menu_selection == '2':
+                logged_in_user.posts
 
-    if menu_selection == '3':
-        print(logged_in_user.set_friends())
-#     if menu_selection == '1':
-#     if menu_selection == '1':
-#     if menu_selection == '1':
+            if menu_selection == '3':
+                print(logged_in_user.set_friends())
+        #     if menu_selection == '1':
+        #     if menu_selection == '1':
+        #     if menu_selection == '1':
 
-print(post1.show_post())
+        break

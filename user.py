@@ -1,6 +1,10 @@
-from post import *
+import profile
+
+import post
+
+
 class User:
-    def __init__(self, username, password, phone, email, bio, posts=[], friends=[], name=None, family=None):
+    def __init__(self, username, password, phone, email, bio, name=None, family=None):
         self.name = name
         self.family = family
         self.username = username
@@ -8,8 +12,9 @@ class User:
         self.phone = phone
         self.email = email
         self.bio = bio
-        self.friends = friends
-        self.posts = posts
+        self.friends = []
+        self.posts = []
+        # self.profile = profile.Profile(username, password, phone, email, bio, name, family)
 
     def show_profile(self):
         """
@@ -17,23 +22,26 @@ class User:
         """
         return f'profile:{self.name} {self.family} {self.bio}'
 
-    def edit_post(self, post_content):
+    def new_post(self):
         """
-        This Function create a post for a user
+        This Function create a new post for the user
         """
-        print('This Function create a post for a user')
-        # post_content = input('enter txt')
-        # new_post = Post(post_content)
-        # new_post.get_post()
-        # self.posts.append()
+        user_new_post = post.Post()
+        self.posts.append(user_new_post)
+        return user_new_post.new_post()
 
-    def set_friends(self):
-        """
-        This Function set friends list
-        """
-        return ('This Function set friends list')
+    def set_comment(self, post, editor):
+        editor = self.username
 
+    #
+    # def set_friends(self):
+    #     """
+    #     This Function set friends list
+    #     """
 
     def __str__(self):
-        return f'{self.phone} {self.email} {self.bio}{self.profile}'
+        return f'{self.phone} {self.email} {self.bio}{self.name} {self.family}'
 
+
+user1 = User('woody', '123', 9126129808, 'sahar@gmail.com', 'I am devops.', 'sahar', 'sheikhi')
+# print(user1.new_post())

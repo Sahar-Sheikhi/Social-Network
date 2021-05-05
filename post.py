@@ -1,38 +1,52 @@
+import comment
+
 import datetime
-#da
+
+import pytz
+
 
 class Post:
-    def __init__(self, text, date=0, time=0, comment=None, comment_num=0):
+    def __init__(self, post_content=None, timestamp=0, comment_num=0):
         """
-        text= post content
+        post_content= post post_content
         date= date of modification
-        time=time of modification
+        timestamp=timestamp of modification
         comment=comment about a post by other users
         comment-num=number of comments for a post
         """
-        self.comment = comment
-        self.text = text
-        self.date = date
-        self.time = time
+        self.comment = []
+        self.post_content = post_content
+        self.timestamp = timestamp
         self.comment_num = comment_num
 
-    def show_post(self):
-        print('show content of a post')
+    # def show_post(self):
 
-    def edit_post(self):
-        """
-        This Function create, modify or delete post
-        """
-        self.text = input('Write Post:\n')
-        return Post(self.text, datetime.datetime.now(), datetime.datetime.today())
+    def new_post(self):
+        input_content = input('Write Post Content:\n')
+        self.post_content = input_content
+        time_zone = pytz.timezone('Asia/Tehran')
+        self.timestamp = datetime.datetime.now(time_zone).strftime("%Y-%m-%d   %H:%M:%S")
 
-    def set_comment(self):
+        return f'New Post is Created Successfuly at:{self.timestamp}'
+
+    # def edit_post(self):
+    #    """
+    #     This Function create, modify or delete post
+    #     """
+    #
+    #     self.post_content =input('Write Post:\n')
+    #     return Post(self.text, datetime.datetime.now(), datetime.datetime.today())
+
+    def set_comment(self,editor):
         """
         This Function create comment for a post and set comment_num
         """
-        # self.comment = input('Write comment:\n')
-        # self.comment_num += 1
-        print('set comment')
+        post_comment = comment.Comment(editor)
+        self.comment_num += 1
 
     def __str__(self):
         return f'{self.date} {self.date} {self.time} {self.comment} {self.comment_num}'
+
+#
+# post1 = Post()
+# print(post1.new_post())
