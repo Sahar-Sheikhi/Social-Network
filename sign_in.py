@@ -1,7 +1,8 @@
 import hashlib
 
 import sign_up
-from Social_Network import user
+
+import user
 
 
 def sign_in():
@@ -17,11 +18,15 @@ def sign_in():
         #     csv_writer = csv.writer(handler)
         #     csv_writer.writerows(new_user_info)
 
-        if input_username not in sign_up.username_list or sign_up.df_saved_info.loc[input_username] != hash_password:
+        if input_username not in sign_up.username_list:
+                # or sign_up.df_saved_info.loc[input_username] != hash_password:
             print('username or password wrong plz try again')
         else:
-            print('***You are logged in.\n')
+            print(f'*** Dear {input_username}:\n You Have logged in Successfully!\n')
             break
-    return user.Users(input_username, input_password)
+    return user.User(input_username, input_password,None,None,None)
 
-sign_in()
+
+
+
+# print(sign_in())

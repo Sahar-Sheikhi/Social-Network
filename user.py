@@ -40,7 +40,7 @@ class User:
     #     """
 
     def __str__(self):
-        return f'{self.phone} {self.email} {self.bio}{self.name} {self.family}'
+        return f'{self.username} {self.phone} {self.email} {self.bio}{self.name} {self.family}'
 
 
 user1 = User('woody', '123', 9126129808, 'sahar@gmail.com', 'I am devops.', 'sahar', 'sheikhi')
