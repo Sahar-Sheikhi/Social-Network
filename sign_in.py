@@ -24,8 +24,5 @@ def sign_in():
             break
     return user.User(input_username, input_password)
 
-
-
-
 # print(sign_in())
 # print(sign_up.usernames_list)

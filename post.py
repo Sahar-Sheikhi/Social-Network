@@ -2,15 +2,13 @@ import pandas as pd
 
 import comment
 
-import datetime
-
-import pytz
-
 df_saved_post_info = pd.read_csv('post_info.csv', index_col=['Post_ID'])
+
+
 # print(list(df_saved_post_info.loc['sahar_1']))
 
 class Post:
-    def __init__(self, username, comment_editor= None, post_content=None, timestamp=0, comment_num=0, post_id = None):
+    def __init__(self, username, comment_editor=None, post_content=None, comment_num=0, post_id=None):
         """
         post_content= post post_content
         date= date of modification
@@ -23,31 +21,23 @@ class Post:
         self.comment_editor = comment_editor
         self.comment = []
         self.post_content = post_content
-        self.timestamp = timestamp
+        # self.timestamp = timestamp
         self.comment_num = comment_num
 
-    # Set date and time as timestamp
-    def set_timestamp(self):
-        time_zone = pytz.timezone('Asia/Tehran')
-        self.timestamp = datetime.datetime.now(time_zone).strftime("%Y-%m-%d   %H:%M:%S")
-
-
     # Send New Post
-    def new_post(self, user_post_index):
+    def new_post(self, user_post_index, timestamp):
         """
                This Function send a new post for the user
         """
         # set post_id from username and number of post
-        self.post_id = self.username + '_' + str(user_post_index+1)
+        self.post_id = self.username + '_' + str(user_post_index + 1)
 
-        return f'New Post is Sent Successfuly at:{self.timestamp}'
+        return f'New Post is Sent Successfuly at:{timestamp}'
 
-    def edit_post(self, new_content):
+    def edit_post(self, new_content, timestamp):
         self.post_content = new_content
-
-        return f'Your Post Edited Successfully at {self.timestamp}'
-
-
+        print(f'Your Post Edited Successfully at {timestamp}')
+        return [self.post_content, timestamp]
 
     def set_comment(self):
         """
@@ -68,10 +58,8 @@ class Post:
     #     self.post_content =input_content
     #     return Post(self.text, datetime.datetime.now(), datetime.datetime.today())
 
-
-
     def __str__(self):
-        return f'Post Content: {self.post_content} Sent at {self.timestamp} has {self.comment_num} Comments'
+        return f'Post Content: {self.post_content}  has {self.comment_num} Comments'
 
 #
 # post1 = Post('sahar')

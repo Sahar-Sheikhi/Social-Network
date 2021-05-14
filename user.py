@@ -9,29 +9,25 @@ class User:
         self.username = username
         self.password = password
         self.profile = profile
-        self.friends = ['test friend','woody']
+        self.friends = []
         self.posts = []
-        self.post_num = post_num
+        # self.post_num = post_num
 
     def set_profile(self):
         # user_profile = profile.Profile(self.username)
         self.profile = profile.Profile(self.username)
 
-
-    def set_friends(self,friend_username):
+    def set_friends(self, friend_username):
         """
         This Function set friends list
         """
         self.friends.append(friend_username)
         return f'{friend_username} is Your Friend Now!'
 
-
-
     def __str__(self):
         return f'{self.username}'
 
-
-user1 = User('woody', '123')
+# user1 = User('woody', '123')
 # print(user1)
 # print(user1.new_post())
 # user1.set_profile()
