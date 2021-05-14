@@ -133,7 +133,7 @@ def show_edit_profile(user):
     print(f'~~~Your Profile~~~\n{read_data("profile_info.csv", "Username", user.username)}')
 
     # Edit Profile
-    print(~~~~~~~~~~~~~\nPlease fill your Profile')
+    print('~~~~~~~~~~~~~\nPlease fill your Profile')
     input_name = input('Enter Name:\n')
     input_family = input('Enter family:\n')
     input_phone = input('Enter phone:\n')
