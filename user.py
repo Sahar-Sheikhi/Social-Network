@@ -5,17 +5,21 @@ from Social_Network import comment
 
 
 class User:
-    def __init__(self, username, password, profile=None, post_num=0):
+    def __init__(self, username, password, profile=None):
         self.username = username
         self.password = password
         self.profile = profile
         self.friends = []
         self.posts = []
-        # self.post_num = post_num
+
 
     def set_profile(self):
-        # user_profile = profile.Profile(self.username)
+        """
+        This Function Set profile for user in first log in
+        """
         self.profile = profile.Profile(self.username)
+
+
 
     def set_friends(self, friend_username):
         """
@@ -27,9 +31,3 @@ class User:
     def __str__(self):
         return f'{self.username}'
 
-# user1 = User('woody', '123')
-# print(user1)
-# print(user1.new_post())
-# user1.set_profile()
-# # print(user1.profile)
-# user1.send_post()
